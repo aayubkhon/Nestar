@@ -12,7 +12,7 @@
     "start:dev": "nest start --watch",
     "start:dev:batch": "nest start nexsus-batch --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/nexsus-api/main",
+    "start:prod": "NODE_ENV=production node dist/apps/nexsus-api/main",
     "start:prod:batch": "node dist/apps/nexsus-batch/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
