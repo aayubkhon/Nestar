@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class AppService {
+export class NexsusBatchService {
   getHello(): string {
-    return 'Hello World!';
+    return "Nexsus-batch API Server";
   }
 }

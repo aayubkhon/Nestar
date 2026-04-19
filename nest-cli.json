@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/nexsus-api/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/nexsus-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/nexsus-api",
+  "projects": {
+    "nexsus": {
+      "type": "application",
+      "root": "apps/nexsus-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/nexsus-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nexsus-api/tsconfig.app.json"
+      }
+    },
+    "nexsus-batch": {
+      "type": "application",
+      "root": "apps/nexsus-batch",
+      "entryFile": "main",
+      "sourceRoot": "apps/nexsus-batch/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nexsus-batch/tsconfig.app.json"
+      }
+    }
   }
 }
