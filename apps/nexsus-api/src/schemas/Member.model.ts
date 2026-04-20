@@ -101,3 +101,5 @@ const MemberSchema = new Schema(
 		collection: 'members',
 	},
 );
+
+export default MemberSchema;
