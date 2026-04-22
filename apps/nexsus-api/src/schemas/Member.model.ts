@@ -56,11 +56,11 @@ const MemberSchema = new Schema(
 			type: Number,
 			default: 0,
 		},
-		memberFollowings: {
+		memberFollowers: {
 			type: Number,
 			default: 0,
 		},
-		memberFollowers: {
+		memberFollowings: {
 			type: Number,
 			default: 0,
 		},
