@@ -8,6 +8,7 @@ import { AppRessolver } from './app.resolver';
 import { ComponentsModule } from './components/components.module';
 import { DatabaseModule } from './database/database.module';
 import { ApolloServerPluginLandingPageLocalDefault as ApolloServer } from '@apollo/server/plugin/landingPage/default';
+import { T } from './libs/types/common';
 @Module({
 	imports: [
 		ConfigModule.forRoot(),
@@ -17,6 +18,15 @@ import { ApolloServerPluginLandingPageLocalDefault as ApolloServer } from '@apol
 			uploads: false,
 			autoSchemaFile: true,
 			plugins: [ApolloServer()],
+			formatError: (error: T) => {
+				const graphQLFormattedError = {
+					code: error?.extensions.code,
+					message:
+						error?.extensions?.exception?.response?.message || error?.extensions?.response?.message || error?.message,
+				};
+				console.log('GRAPHQL GLOBAL ERR', graphQLFormattedError);
+				return graphQLFormattedError;
+			},
 		}),
 		ComponentsModule,
 		DatabaseModule,
