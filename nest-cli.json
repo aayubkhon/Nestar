@@ -10,7 +10,7 @@
   "monorepo": true,
   "root": "apps/nexsus-api",
   "projects": {
-    "nexsus": {
+    "nexsus-api": {
       "type": "application",
       "root": "apps/nexsus-api",
       "entryFile": "main",
