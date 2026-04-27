@@ -74,14 +74,17 @@ export class MemberResolver {
 	@Roles(MemberType.ADMIN)
 	@UseGuards(RolesGuard)
 	@Query(() => Members)
-	public async getAllMembersByADmin(@Args('input') input: MembersInquiry): Promise<Members> {
+	public async getAllMembersByAdmin(@Args('input') input: MembersInquiry): Promise<Members> {
+		console.log('Query: getAllMembersByAdmin');
 		return await this.memberService.getAllMembersByADmin(input);
 	}
 
 	// Authorization :ADMIN
 	@Roles(MemberType.ADMIN)
-	@Mutation(() => String)
-	public async updateMemberByAdmin(): Promise<string> {
-		return await this.memberService.updateMemberByAdmin();
+	@UseGuards(RolesGuard)
+	@Mutation(() => Member)
+	public async updateMemberByAdmin(@Args('input') input: MemberUpdate): Promise<Member> {
+		console.log('Query: updateMemberByAdmin');
+		return await this.memberService.updateMemberByAdmin(input);
 	}
 }
