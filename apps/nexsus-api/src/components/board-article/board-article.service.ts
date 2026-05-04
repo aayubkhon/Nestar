@@ -60,7 +60,9 @@ export class BoardArticleService {
 				await this.boardArticleStasEditor({ _id: articleId, targetKey: 'articleViews', modifier: 1 });
 				targteBoardArticle.articleViews++;
 			}
-			// meLiked
+
+			const likeInput = { memberId: memberId, likeRefId: articleId, likeGroup: LikeGroup.ARTICLE };
+			targteBoardArticle.meLiked = await this.likeService.checkLikeExistence(likeInput);
 		}
 
 		targteBoardArticle.memberData = await this.memberService.getMember(null, targteBoardArticle.memberId);
