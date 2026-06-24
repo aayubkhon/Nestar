@@ -79,8 +79,8 @@ export class MemberResolver {
 		@AuthMember('_id') memberId: ObjectId,
 	): Promise<Member> {
 		console.log('Mutation: likeTargetmember');
-		const likeRefId = shapeIntoMongoObjectId(input)
-		return await this.memberService.likeTargetmember(memberId,likeRefId);
+		const likeRefId = shapeIntoMongoObjectId(input);
+		return await this.memberService.likeTargetmember(memberId, likeRefId);
 	}
 
 	/** ADMIN **/
