@@ -2,10 +2,6 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class BatchService {
-	getHello(): string {
-		return 'Nexsus-batch API Server';
-	}
-
 	public async batchRollback(): Promise<void> {
 		console.log('batchRollback');
 	}
@@ -14,5 +10,8 @@ export class BatchService {
 	}
 	public async batchAgebts(): Promise<void> {
 		console.log('batchRollback');
+	}
+	getHello(): string {
+		return 'Nexsus-batch API Server';
 	}
 }
