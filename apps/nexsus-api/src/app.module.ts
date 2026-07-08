@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { DatabaseModule } from './database/database.module';
 import { ApolloServerPluginLandingPageLocalDefault as ApolloServer } from '@apollo/server/plugin/landingPage/default';
 import { T } from './libs/types/common';
+import { SocketModule } from './socket/socket.module';
 @Module({
 	imports: [
 		ConfigModule.forRoot(),
@@ -30,6 +31,7 @@ import { T } from './libs/types/common';
 		}),
 		ComponentsModule,
 		DatabaseModule,
+		SocketModule,
 	],
 	controllers: [AppController],
 	providers: [AppService, AppRessolver],
