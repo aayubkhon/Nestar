@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { NexsusBatchController } from './batch.controller';
-import { NexsusBatchService } from './batch.service';
+import { BatchService } from './batch.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { BatchController } from './batch.controller';
 
 @Module({
 	imports: [ConfigModule.forRoot(), DatabaseModule, ScheduleModule.forRoot()],
-	controllers: [NexsusBatchController],
-	providers: [NexsusBatchService],
+	controllers: [BatchController],
+	providers: [BatchService],
 })
 export class BatchModule {}
